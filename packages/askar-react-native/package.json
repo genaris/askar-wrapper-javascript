@@ -17,6 +17,7 @@
   },
   "files": [
     "build",
+    "src/specs",
     "android/src",
     "android/build.gradle",
     "android/CMakeLists.txt",
@@ -29,6 +30,14 @@
     "askar.podspec",
     "scripts"
   ],
+  "codegenConfig": {
+    "name": "RNAskarSpec",
+    "type": "modules",
+    "jsSrcsDir": "src/specs",
+    "android": {
+      "javaPackageName": "foundation.openwallet.askar"
+    }
+  },
   "scripts": {
     "types:check": "pnpm compile --noEmit",
     "build": "pnpm clean && pnpm compile",

@@ -1,14 +1,15 @@
 import { NativeAskar } from '@openwallet-foundation/askar-shared'
-import { NativeModules } from 'react-native'
 
 import type { NativeBindings } from './NativeBindings'
 import { ReactNativeAskar } from './ReactNativeAskar'
+import AskarTurboModule from './specs/NativeAskar'
 
 // Reexport everything from shared
 export * from '@openwallet-foundation/askar-shared'
 
-const module = NativeModules.Askar as { install: () => boolean }
-if (!module.install()) throw Error('Unable to install the turboModule: askar')
+if (!AskarTurboModule.install()) {
+  throw Error('Unable to install the turboModule: askar')
+}
 
 // This can already check whether `_askar` exists on global
 // biome-ignore lint/correctness/noInvalidUseBeforeDeclaration:
